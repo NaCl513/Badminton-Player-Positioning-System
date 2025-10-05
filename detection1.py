@@ -17,7 +17,7 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontProperties
+
 
 def white_pixel_extraction(frame, sigma_l, sigma_d, tau):
     """
