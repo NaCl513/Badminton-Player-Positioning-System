@@ -1,5 +1,18 @@
-# 基於YOLOv8與Homography之羽球員場上定位系統
-## 執行方式:下載後，直接執行detection1.py  
-此為專題成果，包含訓練好的YOLO模型、範例影片、程式碼  
-請確保套件內容皆有下載<br><br>
-本研究旨在開發一套自動化的視覺分析系統，以對羽球賽事中的選手進行精準的場上定位，並將場地劃分為九宮格，並統計選手在各區域的活動頻率。本系統整合了兩項核心電腦視覺技術，並採用世界羽球聯盟(BWF)的官方YouTube頻道做為研究及訓練資料。首先，透過實作機率霍夫變換與最小二乘法擬合的演算法，對賽事影像進行場地幾何還原，以計算出能將賽事影像像素座標映射至標準化球場模型的單應性變換矩陣(Homography Matrix)。其次，採用YOLOv8深度學習模型對選手進行即時目標偵測，以獲取選手在影像中的 Bounding Box。本系統的核心在於將兩者結合，利用計算出的單應性變換矩陣，成功將YOLO模型偵測到的選手像素位置，轉換為二維球場模型上的實際球場座標。基於此座標，系統將球場劃分為九宮格區域，並即時偵測選手位與哪個區域，並統計選手在各區域的活動頻率。實驗結果顯示本系統能有效地將選手位置映射至標準場地上，並提供量化的區域分佈數據，為球員與教練提供一種自動化的戰術評估工具。
+# Badminton Player On-Court Localization System Based on YOLOv8 and Homography
+## Execution Method: Download the files, then directly run the "detection1.py".<br>Stopping Playback: Press the 'q' while the script is running to stop the system.
+This is the result of a special research project, which includes the trained YOLO model, a sample video, and the source code.  
+Please ensure that all required software packages and dependencies are downloaded and installed.  
+
+
+- This research aims to develop an automated visual analysis system for precisely locating players on the court during badminton matches and statistically analyzing their activity frequency within a nine-square court grid.
+
+We used two core methods: 
+
+1. Homography Matrix Estimation: The system first performs court geometry rectification on the match video frames. This is achieved by implementing an algorithm that combines the Probabilistic Hough Transform with Least Squares fitting to compute the Homography Matrix. This matrix is essential for mapping the pixel coordinates of the match video to a standardized court model.
+
+2. Player Detection: The YOLOv8 deep learning model is employed for real-time object detection of the players, providing their Bounding Box locations within the image.
+
+The core innovation lies in combining these two techniques: the calculated Homography Matrix is used to successfully transform the pixel positions of the players detected by the YOLO model into their actual 2D court coordinates on the standardized court model.
+
+Data Analysis and Conclusion
+Based on these coordinates, the system divides the court into a nine-square region and instantly detects which area the player is in. It then compiles a real-time statistical record of the player's activity frequency within each region.
