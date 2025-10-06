@@ -525,8 +525,8 @@ def status_panel(p1_left_count, p1_middle_count, p1_right_count, p2_left_count, 
 #====================================================================================
 if __name__ == '__main__':
     #一、載入影片與 YOLO 模型，並取得影片第一幀
-    video = cv2.VideoCapture(r"D:\yolov8_project\final_video\001.mp4") 
-    yolo = YOLO(r"D:\yolov8_project\runs\detect\002\weights\best.pt")
+    video = cv2.VideoCapture(r"001.mp4") 
+    yolo = YOLO(r"final.pt")
     ret, origin_frame = video.read()
     
     #二、場地偵測與計算H矩陣
